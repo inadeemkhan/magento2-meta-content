@@ -1,5 +1,5 @@
 <?php
 use Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Nadeemkhan_MetaContent', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'INadeemkhan_MetaContent', __DIR__);
 

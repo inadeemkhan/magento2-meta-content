@@ -1,5 +1,5 @@
 {
-    "name": "nadeemkhan/module-metacontent",
+    "name": "inadeemkhan/module-metacontent",
     "description": "Magento2 extension for Miscllanious code.",
     "type": "magento2-module",
     "license": "proprietary",
@@ -16,7 +16,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "Nadeemkhan\\MetaContent\\": ""
+            "INadeemkhan\\MetaContent\\": ""
         }
     }
 }
