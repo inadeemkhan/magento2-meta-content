@@ -1,6 +1,6 @@
 {
-    "name": "inadeemkhan/module-metacontent",
-    "description": "Magento2 extension for Miscllanious code.",
+    "name": "nadeem/module-metacontent",
+    "description": "Magento2 extension to make pages meta robots content NoIndex,NoFollow",
     "type": "magento2-module",
     "license": "proprietary",
     "authors": [
@@ -16,7 +16,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "INadeemkhan\\MetaContent\\": ""
+            "Nadeem\\MetaContent\\": ""
         }
     }
 }
