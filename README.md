@@ -1,6 +1,6 @@
-# Mage2 Module Nadeemkhan MetaContent
+# Mage2 Module Nadeem MetaContent
 
-    ``nadeemkhan/module-metacontent``
+    ``nadeem/module-metacontent``
 
  - [Main Functionalities](#markdown-header-main-functionalities)
  - [Installation](#markdown-header-installation)
@@ -10,15 +10,15 @@
 
 
 ## Main Functionalities
-Magento2 extension for Miscllanious code.
+Magento2 extension to make pages meta robots content NoIndex,NoFollow
 
 ## Installation
 \* = in production please use the `--keep-generated` option
 
 ### Type 1: Zip file
 
- - Unzip the zip file in `app/code/Nadeemkhan`
- - Enable the module by running `php bin/magento module:enable Nadeemkhan_MetaContent`
+ - Unzip the zip file in `app/code/Nadeem`
+ - Enable the module by running `php bin/magento module:enable Nadeem_MetaContent`
  - Apply database updates by running `php bin/magento setup:upgrade`\*
  - Flush the cache by running `php bin/magento cache:flush`
 
@@ -29,23 +29,29 @@ Magento2 extension for Miscllanious code.
     - public repository `packagist.org`
     - public github repository as vcs
  - Add the composer repository to the configuration by running `composer config repositories.repo.magento.com composer https://repo.magento.com/`
- - Install the module composer by running `composer require nadeemkhan/module-metacontent`
- - enable the module by running `php bin/magento module:enable Nadeemkhan_MetaContent`
+ - Install the module composer by running `composer require nadeem/module-metacontent`
+ - enable the module by running `php bin/magento module:enable Nadeem_MetaContent`
  - apply database updates by running `php bin/magento setup:upgrade`\*
  - Flush the cache by running `php bin/magento cache:flush`
 
 
 ## Configuration
 
-
+ - is_enable (meta_content/general/is_enable)
 
 
 ## Specifications
 
+ - Helper
+	- Nadeem\MetaContent\Helper\Data
 
+ - Plugin
+	- beforeRenderMetadata - Magento\Framework\View\Page\Config\Renderer > Nadeem\MetaContent\Plugin\Frontend\Magento\Framework\View\Page\Config\Renderer
 
 
 ## Attributes
 
+ - Category - enable_meta (enable_meta)
 
+ - Category - robots_content (robots_content)
 
