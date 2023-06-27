@@ -1,9 +1,5 @@
 <?php
 declare(strict_types=1);
-/**
-* Copyright © 2013-2017 Magento, Inc. All rights reserved.
-* See COPYING.txt for license details.
-*/
 
 namespace Nadeem\MetaContent\Setup\Patch\Data;
 
@@ -14,7 +10,7 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Setup\Patch\PatchRevertableInterface;
 
-class AddEnableMetaCategoryAttribute implements DataPatchInterface, PatchRevertableInterface
+class AddRobotsValueCategoryAttribute implements DataPatchInterface, PatchRevertableInterface
 {
 
     /**
@@ -50,13 +46,13 @@ class AddEnableMetaCategoryAttribute implements DataPatchInterface, PatchReverta
         $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
         $eavSetup->addAttribute(
             \Magento\Catalog\Model\Category::ENTITY,
-            'enable_meta',
+            'robots_value',
             [
                 'type' => 'int',
-                'label' => 'enable_meta',
-                'input' => 'boolean',
+                'label' => 'robots_value',
+                'input' => 'select',
                 'sort_order' => 333,
-                'source' => '',
+                'source' => 'Nadeem\MetaContent\Model\Category\Attribute\Source\RobotsValue',
                 'global' => ScopedAttributeInterface::SCOPE_STORE,
                 'visible' => true,
                 'required' => false,
@@ -75,7 +71,7 @@ class AddEnableMetaCategoryAttribute implements DataPatchInterface, PatchReverta
         $this->moduleDataSetup->getConnection()->startSetup();
         /** @var EavSetup $eavSetup */
         $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
-        $eavSetup->removeAttribute(\Magento\Catalog\Model\Category::ENTITY, 'enable_meta');
+        $eavSetup->removeAttribute(\Magento\Catalog\Model\Category::ENTITY, 'robots_value');
 
         $this->moduleDataSetup->getConnection()->endSetup();
     }

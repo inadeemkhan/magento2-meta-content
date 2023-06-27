@@ -1,5 +1,0 @@
-
-type StoreConfig {
-    
-    meta_content_general_is_enable  : String  @doc(description: "Query by meta_content_general_is_enable.") 
-}

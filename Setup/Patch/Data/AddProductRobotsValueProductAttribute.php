@@ -1,9 +1,5 @@
 <?php
 declare(strict_types=1);
-/**
-* Copyright © 2013-2017 Magento, Inc. All rights reserved.
-* See COPYING.txt for license details.
-*/
 
 namespace Nadeem\MetaContent\Setup\Patch\Data;
 
@@ -14,7 +10,7 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Setup\Patch\PatchRevertableInterface;
 
-class AddRobotsContentCategoryAttribute implements DataPatchInterface, PatchRevertableInterface
+class AddProductRobotsValueProductAttribute implements DataPatchInterface, PatchRevertableInterface
 {
 
     /**
@@ -49,21 +45,33 @@ class AddRobotsContentCategoryAttribute implements DataPatchInterface, PatchReve
         /** @var EavSetup $eavSetup */
         $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
         $eavSetup->addAttribute(
-            \Magento\Catalog\Model\Category::ENTITY,
-            'robots_content',
+            \Magento\Catalog\Model\Product::ENTITY,
+            'product_robots_value',
             [
                 'type' => 'int',
-                'label' => 'robots_content',
+                'label' => 'Robots Value',
                 'input' => 'select',
-                'sort_order' => 333,
-                'source' => 'Magento\Catalog\Model\Category\Attribute\Source\Sortby',
-                'global' => ScopedAttributeInterface::SCOPE_STORE,
-                'visible' => true,
+                'source' => \Nadeem\MetaContent\Model\Product\Attribute\Source\ProductRobotsValue::class,
+                'frontend' => '',
                 'required' => false,
-                'user_defined' => false,
+                'backend' => '',
+                'sort_order' => '30',
+                'global' => ScopedAttributeInterface::SCOPE_STORE,
                 'default' => null,
-                'group' => 'General Information',
-                'backend' => ''
+                'visible' => true,
+                'user_defined' => true,
+                'searchable' => false,
+                'filterable' => false,
+                'comparable' => false,
+                'visible_on_front' => false,
+                'unique' => false,
+                'apply_to' => '',
+                'group' => 'General',
+                'used_in_product_listing' => false,
+                'is_used_in_grid' => true,
+                'is_visible_in_grid' => false,
+                'is_filterable_in_grid' => false,
+                'option' => ''
             ]
         );
 
@@ -75,7 +83,7 @@ class AddRobotsContentCategoryAttribute implements DataPatchInterface, PatchReve
         $this->moduleDataSetup->getConnection()->startSetup();
         /** @var EavSetup $eavSetup */
         $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
-        $eavSetup->removeAttribute(\Magento\Catalog\Model\Category::ENTITY, 'robots_content');
+        $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'product_robots_value');
 
         $this->moduleDataSetup->getConnection()->endSetup();
     }
@@ -98,4 +106,3 @@ class AddRobotsContentCategoryAttribute implements DataPatchInterface, PatchReve
         ];
     }
 }
-
