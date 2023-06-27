@@ -46,12 +46,12 @@ Magento2 extension to make pages meta robots content NoIndex,NoFollow
 	- Nadeem\MetaContent\Helper\Data
 
  - Plugin
-	- beforeRenderMetadata - Magento\Framework\View\Page\Config\Renderer > Nadeem\MetaContent\Plugin\Frontend\Magento\Framework\View\Page\Config\Renderer
+	- beforeRenderMetadata - Magento\Framework\View\Page\Config\Renderer > Nadeem\MetaContent\Plugin\Magento\Framework\View\Page\Config\Renderer
 
 
 ## Attributes
 
- - Category - enable_meta (enable_meta)
+ - Category - is_meta_enable (is_meta_enable)
 
- - Category - robots_content (robots_content)
+ - Category - robots_value (robots_value)
 

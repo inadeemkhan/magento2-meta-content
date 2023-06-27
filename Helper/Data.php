@@ -1,9 +1,5 @@
 <?php
 declare(strict_types=1);
-/**
-* Copyright © 2013-2017 Magento, Inc. All rights reserved.
-* See COPYING.txt for license details.
-*/
 
 namespace Nadeem\MetaContent\Helper;
 
